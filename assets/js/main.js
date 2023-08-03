@@ -41,13 +41,16 @@ const clockText = () =>{
       ampm
 
   // We get the days of the weeks and the months. (First day of the week Domingo)
-  let daysWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+  let daysWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   let months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
   // We add corresponding dates
   dateDayWeek.innerHTML = `${daysWeek[dayWeek]}`
   dateMonth.innerHTML = `${months[month]}`
+
+  if (day < 10){day = `0${day}`}
   dateDay.innerHTML = `${day}, `
+
   dateYear.innerHTML = year
 
   // If hour is greater than 12 (afternoon), we subtract -12, so that is startsat 1 (afternoon)
@@ -65,7 +68,7 @@ const clockText = () =>{
 
   // If hours are less than 10, add a 0 (01, 02, 03,...09)
   if (hh<10){hh = `0${hh}`}    
-  textHour.innerHTML = `${hh}: `
+  textHour.innerHTML = `${hh} : `
 
   // If minutes are less than 10, add a 0 (01, 02, 03,...09)
   if (mm<10){mm = `0{mm}`}
